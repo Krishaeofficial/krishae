@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KRISHAE – Swim Essentials for the UAE</title>
+<style>
+:root{--bg:#f6fbfc;--card:#fff;--ink:#12303a;--mute:#5d7882;--line:#d8e6ea;--brand:#0a8a9f;--brand-ink:#fff;--accent:#ff7a59;--wa:#1faa59;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1a1f;--card:#14272e;--ink:#e6f2f5;--mute:#93aeb6;--line:#244049;--brand:#33b5c9;--brand-ink:#06222a}}
+:root[data-theme="dark"]{--bg:#0c1a1f;--card:#14272e;--ink:#e6f2f5;--mute:#93aeb6;--line:#244049;--brand:#33b5c9;--brand-ink:#06222a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45;padding-bottom:90px}
+header{padding:28px 18px 18px;text-align:center}
+h1{margin:0;font-size:30px;letter-spacing:3px;color:var(--brand)}
+header p{margin:6px 0 0;color:var(--mute)}
+.banner{margin:0 14px 14px;background:var(--accent);color:#fff;border-radius:12px;padding:12px 14px;font-size:14px;text-align:center}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 14px 12px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:8px 14px;font-size:14px;white-space:nowrap;cursor:pointer}
+.chip.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;padding:0 14px;max-width:1000px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.ico{font-size:34px}
+.card h3{margin:0;font-size:15px;line-height:1.3}
+.card small{color:var(--mute)}
+.price{font-weight:700;font-size:18px;margin-top:auto}
+.row{display:flex;align-items:center;gap:8px}
+.add{flex:1;border:0;background:var(--brand);color:var(--brand-ink);border-radius:10px;padding:10px;font-size:14px;font-weight:600;cursor:pointer}
+.qty{display:flex;align-items:center;gap:10px;flex:1;justify-content:space-between}
+.qty button{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:none;align-items:center;gap:12px}
+.bar.show{display:flex}
+.bar div{flex:1;font-size:13px;color:var(--mute)}
+.bar b{display:block;color:var(--ink);font-size:16px}
+.bar a{background:var(--wa);color:#fff;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:12px;font-size:15px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:24px 18px}
+</style>
+</head>
+<body>
+<header>
+<h1>KRISHAE</h1>
+<p>Swim essentials for kids &amp; modest swimwear for women · UAE</p>
+</header>
+<div class="banner">Pre-orders open · stock arriving soon. Free UAE delivery on orders from AED 149 (AED 15 below that).</div>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+<div class="bar" id="bar"><div><span id="cnt"></span><b id="tot"></b></div><a id="wa" target="_blank" rel="noopener">Pre-order on WhatsApp</a></div>
+<footer>Colours and sizes are confirmed with you on WhatsApp.<br>Email: store.krishae@gmail.com</footer>
+<script>
+var NUM="971588479143";
+var P=[
+["Modest Burkini – 3-Piece Quick-Dry Set","w",169,"👙","Sizes S–2XL"],
+["Women’s Burkini Swim Package (Burkini, Nose Clip & Earplugs)","w",199,"🧕","Sizes S–2XL"],
+["Kids Inflatable Arm Bands","k",65,"💪","Several sizes & designs"],
+["Kids Inflatable Waist Float","k",65,"🛟","Beginner swim aid"],
+["Kids Long Sleeve UV Swim Set","k",129,"👕","Rash guard set"],
+["Kids Cartoon Swim Vest","k",99,"🦺","Adjustable floatation aid"],
+["Kids Silicone Swim Cap","k",35,"🧢","Cartoon designs"],
+["Kids Swimming Goggles – Anti-Leak","k",45,"🥽","Several colours"],
+["Kids Hooded Towel Cape","k",55,"🧖","Quick-dry coral velvet"],
+["Kids Wet & Dry Swim Bag","k",99,"🎒","With shoe compartment"],
+["Silicone Swimming Earplugs with Case","k",25,"👂","Several colours"],
+["Kids Swimming Nose Clip","k",24.99,"👃","Packs of 3 and 5 available"],
+["Nose Clip Rainbow Pack (5 Colours)","b",59.99,"🌈","5 assorted colours"],
+["Earplugs Family Pack (5 Colours)","b",59,"👪","5 colours"],
+["Swim Lesson Starter Bundle","b",99,"🎁","Goggles, cap, nose clip & earplugs"],
+["Girls Swim Essentials Pack","b",99,"🧜","Goggles, cap, earplugs & nose clip"],
+["Little Swimmer Bundle","b",115,"🐣","Arm bands, goggles & earplugs"],
+["Beginner Swim Confidence Bundle","b",139,"🐳","Swim vest, goggles & earplugs"],
+["Pool Day Bundle","b",169,"🏊","Swim bag, towel cape & goggles"],
+["Complete Swim Lesson Bundle (5-Piece)","b",179,"📦","Kit with swim bag"],
+["Beach Holiday Bundle","b",199,"🏖️","Bag, towel cape, goggles & cap"],
+["Sibling Swim Pack – Gear for 2 Kids","b",209,"👫","Two full sets"],
+["Beach Vacation Family Pack","b",219,"🌴","Bag, towel cape, goggles & arm bands"],
+["Premium Learn-to-Swim Bundle (6-Piece)","b",239,"⭐","Complete kit"],
+["Family Swim Starter Bundle (Mum & Child)","b",239,"💞","Burkini, kids goggles, cap & earplugs"],
+["Learn-to-Swim Mega Bundle (7-Piece)","b",299,"👑","Kit with swim vest"]
+];
+var F=[["all","All"],["k","Kids"],["w","Women"],["b","Bundles"]],cur="all",cart={};
+function fmt(n){return "AED "+(Math.round(n*100)/100).toString()}
+function chips(){document.getElementById("chips").innerHTML=F.map(function(f){return '<button class="chip'+(f[0]==cur?' on':'')+'" onclick="setF(\''+f[0]+'\')">'+f[1]+'</button>'}).join("")}
+function setF(c){cur=c;chips();grid()}
+function grid(){document.getElementById("grid").innerHTML=P.map(function(p,i){
+if(cur!="all"&&p[1]!=cur)return"";
+var q=cart[i]||0;
+var ctl=q?'<div class="qty"><button onclick="chg('+i+',-1)">−</button><b>'+q+'</b><button onclick="chg('+i+',1)">+</button></div>':'<button class="add" onclick="chg('+i+',1)">Add to order</button>';
+return '<div class="card"><div class="ico">'+p[3]+'</div><h3>'+p[0]+'</h3><small>'+p[4]+'</small><div class="price">'+(p[0].indexOf("Pack")>-1||p[1]=="b"?"":"From ")+fmt(p[2])+'</div><div class="row">'+ctl+'</div></div>'}).join("");bar()}
+function chg(i,d){cart[i]=Math.max(0,(cart[i]||0)+d);if(!cart[i])delete cart[i];grid()}
+function bar(){
+var ks=Object.keys(cart),n=0,sub=0,lines=[];
+ks.forEach(function(k){var p=P[k],q=cart[k];n+=q;sub+=p[2]*q;lines.push("- "+q+" x "+p[0]+" ("+fmt(p[2]*q)+")")});
+var b=document.getElementById("bar");
+if(!n){b.className="bar";return}
+var del=sub>=149?0:15,tot=sub+del;
+b.className="bar show";
+document.getElementById("cnt").textContent=n+(n>1?" items":" item")+" · delivery "+(del?fmt(del):"free");
+document.getElementById("tot").textContent=fmt(tot);
+var msg="Hello KRISHAE! I would like to pre-order:\n"+lines.join("\n")+"\nDelivery: "+(del?fmt(del):"free")+"\nTotal: "+fmt(tot)+"\nPlease confirm colours/sizes, availability and delivery date.";
+document.getElementById("wa").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg)}
+chips();grid();
+</script>
+</body>
+</html>

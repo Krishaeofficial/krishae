@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KRISHAE for Swim Academies – Bulk Orders</title>
+<style>
+:root{--bg:#f6fbfc;--card:#fff;--ink:#12303a;--mute:#5d7882;--line:#d8e6ea;--brand:#0a8a9f;--brand-ink:#fff;--accent:#ff7a59;--wa:#1faa59;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1a1f;--card:#14272e;--ink:#e6f2f5;--mute:#93aeb6;--line:#244049;--brand:#33b5c9;--brand-ink:#06222a}}
+:root[data-theme="dark"]{--bg:#0c1a1f;--card:#14272e;--ink:#e6f2f5;--mute:#93aeb6;--line:#244049;--brand:#33b5c9;--brand-ink:#06222a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45;padding-bottom:100px}
+header{padding:28px 18px 14px;text-align:center}
+h1{margin:0;font-size:28px;letter-spacing:3px;color:var(--brand)}
+header p{margin:6px 0 0;color:var(--mute)}
+.wrap{max-width:720px;margin:0 auto;padding:0 14px}
+.note{background:var(--accent);color:#fff;border-radius:12px;padding:12px 14px;font-size:14px;text-align:center;margin-bottom:14px}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.why div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13px;color:var(--mute)}
+.why b{display:block;color:var(--ink);font-size:14px}
+label.f{display:block;font-size:13px;color:var(--mute);margin:0 0 4px}
+input.t{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:16px;margin-bottom:14px}
+.item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
+.item .i{font-size:28px}
+.item .n{flex:1;font-size:14px}
+.item .n b{display:block;font-size:15px}
+.item .n small{color:var(--mute)}
+.item input{width:72px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:16px;text-align:center}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px}
+.bar div{flex:1;font-size:13px;color:var(--mute)}
+.bar b{display:block;color:var(--ink);font-size:16px}
+.bar a{background:var(--wa);color:#fff;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:12px;font-size:15px}
+.bar a.off{opacity:.5;pointer-events:none}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:20px 18px}
+</style>
+</head>
+<body>
+<header>
+<h1>KRISHAE</h1>
+<p>Swim gear for academies, schools &amp; pool owners</p>
+</header>
+<div class="wrap">
+<div class="note">Bulk pricing on request. Stock arriving soon, so reserve your quantities now.</div>
+<div class="why">
+<div><b>Quality kids’ gear</b>Goggles, caps, aids &amp; more</div>
+<div><b>Mixed colours</b>Pick designs per class</div>
+<div><b>UAE delivery</b>Direct to your academy</div>
+<div><b>Quick reply</b>Quote on WhatsApp</div>
+</div>
+<label class="f" for="org">Academy / pool / school name</label>
+<input class="t" id="org" placeholder="e.g. Sharjah Swim Club" autocomplete="organization">
+<div id="list"></div>
+</div>
+<div class="bar"><div><span id="cnt">No items yet</span><b id="tot"></b></div><a id="wa" class="off" target="_blank" rel="noopener">Request quote</a></div>
+<footer>Colours, sizes and bulk pricing are confirmed on WhatsApp.<br>Email: store.krishae@gmail.com</footer>
+<script>
+var NUM="971588479143";
+var P=[
+["Kids Swimming Goggles – Anti-Leak","🥽","Several colours",45],
+["Kids Silicone Swim Cap","🧢","Cartoon designs",35],
+["Silicone Swimming Earplugs with Case","👂","Several colours",25],
+["Kids Swimming Nose Clip","👃","Singles and packs",24.99],
+["Nose Clip Rainbow Pack (5 Colours)","🌈","5 assorted colours",59.99],
+["Earplugs Family Pack (5 Colours)","👪","5 colours",59],
+["Kids Inflatable Arm Bands","💪","Sizes XS to XL",65],
+["Kids Inflatable Waist Float","🛟","Beginner swim aid",65],
+["Kids Cartoon Swim Vest","🦺","Sizes S, M, L",99],
+["Kids Long Sleeve UV Swim Set","👕","Rash guard set",129],
+["Kids Hooded Towel Cape","🧖","Quick-dry coral velvet",55],
+["Kids Wet & Dry Swim Bag","🎒","With shoe compartment",99],
+["Swim Lesson Starter Bundle","🎁","Goggles, cap, nose clip & earplugs",99],
+["Complete Swim Lesson Bundle (5-Piece)","📦","Kit with swim bag",179],
+["Learn-to-Swim Mega Bundle (7-Piece)","👑","Kit with swim vest",299]
+];
+document.getElementById("list").innerHTML=P.map(function(p,i){
+return '<div class="item"><div class="i">'+p[1]+'</div><div class="n"><b>'+p[0]+'</b><small>'+p[2]+' · retail AED '+p[3]+'</small></div><input type="number" inputmode="numeric" min="0" placeholder="Qty" data-i="'+i+'" oninput="upd()"></div>'}).join("");
+function upd(){
+var ins=document.querySelectorAll("#list input"),lines=[],n=0,units=0;
+ins.forEach(function(e){var q=parseInt(e.value,10);if(q>0){n++;units+=q;lines.push("- "+q+" x "+P[e.getAttribute("data-i")][0])}});
+var a=document.getElementById("wa"),org=document.getElementById("org").value.trim();
+document.getElementById("cnt").textContent=n?n+(n>1?" products":" product"):"No items yet";
+document.getElementById("tot").textContent=n?units+" units":"";
+if(!n){a.className="off";a.removeAttribute("href");return}
+a.className="";
+var msg="Hello KRISHAE! Bulk quote request"+(org?" from "+org:"")+":\n"+lines.join("\n")+"\nPlease share bulk pricing, available colours/sizes and delivery timeline.";
+a.href="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg)}
+document.getElementById("org").addEventListener("input",upd);
+</script>
+</body>
+</html>
